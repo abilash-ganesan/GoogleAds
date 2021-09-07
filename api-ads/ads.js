@@ -65,11 +65,11 @@ function initializeIMA() {
 
     // Specify the linear and nonlinear slot sizes. This helps the SDK to
     // select the correct creative if multiple are returned.
-    adsRequest.linearAdSlotWidth = 640;
-    adsRequest.linearAdSlotHeight = 400;
+    adsRequest.linearAdSlotWidth = videoElement.clientWidth;
+    adsRequest.linearAdSlotHeight = videoElement.clientHeight;
 
-    adsRequest.nonLinearAdSlotWidth = 640;
-    adsRequest.nonLinearAdSlotHeight = 150;
+    adsRequest.nonLinearAdSlotWidth = videoElement.clientWidth;
+    adsRequest.nonLinearAdSlotHeight = videoElement.clientHeight;
 
     // Pass the request to the adsLoader to request ads
     adsLoader.requestAds(adsRequest);
@@ -89,11 +89,9 @@ function AdContainerClick() {
 }
 
 function OnAdsManagerLoaded(adsManagerLoadedEvent) {
-    var adsRenderingSettings = new google.ima.AdsRenderingSettings();
-    adsRenderingSettings.restoreCustomPlaybackStateOnAdBreakComplete = true;
 
     // Instantiate the AdsManager from the adsLoader response and pass it the video element
-    adsManager = adsManagerLoadedEvent.getAdsManager(videoElement, adsRenderingSettings);
+    adsManager = adsManagerLoadedEvent.getAdsManager(videoElement);
 
     adsManager.addEventListener(
         google.ima.AdErrorEvent.Type.AD_ERROR, OnAdError);
