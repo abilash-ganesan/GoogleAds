@@ -7,7 +7,7 @@ var adDisplayContainer;
 var adsLoader;
 var adsManager;
 var countdownTimer;
-var playButton;
+var playbutton;
 
 // Response TYPE
 const RESPONSE_TYPE = {
@@ -58,6 +58,8 @@ function postScoreAPIRequest(_user_id, _game_id, _score) {
     xhr.send(postData);
 };
 
+
+
 // XHR request to get Ad responce
 function initializedAdAPIRequest() {
     if (adsAPIInitialized) {
@@ -81,18 +83,14 @@ function initializedAdAPIRequest() {
 
                 adsAPIresponse.in_game = function () { };
 
-                adsAPIresponse.revive = function () {
-                    if(responseText.v_ads.s==1)
-                    {
-                        playAds();
-                    }
-                };
+                adsAPIresponse.revive = function () {  };
 
                 adsAPIresponse.reward = function () { };
 
                 adsAPIresponse.exit = function () { };
             }
             adsAPIInitialized = true;
+            adsAPIresponse.revive = playAds();
         }
     });
 
@@ -105,7 +103,7 @@ function initializedAdAPIRequest() {
 function init() {
     videoelement = document.getElementById('video-element');
     playbutton = document.getElementsByName('playbutton');
-    playbutton.addEventListener('click', playAds);
+    playbutton.addEventListener = function(){'click', playAds};
     setUpIMA();
 }
 
