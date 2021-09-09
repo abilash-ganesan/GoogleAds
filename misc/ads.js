@@ -102,8 +102,6 @@ function initializedAdAPIRequest() {
 
 function init() {
     videoelement = document.getElementById('video-element');
-    playbutton = document.getElementsByName('playbutton');
-    playbutton.addEventListener = function(){'click', playAds};
     setUpIMA();
 }
 
