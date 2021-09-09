@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hammerplay Studios</title>
+<link rel="shortcut icon" type="image/png" href="icon/favicon.png">
+<link rel="stylesheet" href="style.css">
+
+<body>
+    <h2>Hammerplay Studios</h2>
+    <p>Maxamtech API Test</p>
+
+    <div id="pageContent">
+        <div id="videoContainer">
+            <video id="video-element">
+                <source src="https://storage.googleapis.com/interactive-media-ads/media/android.mp4">
+                <source src="https://storage.googleapis.com/interactive-media-ads/media/android.webm">
+            </video>
+            <div id="adContainer"></div>
+        </div>
+        
+    
+    </div>
+
+    <!-- Script Reference -->
+    <script src ="//imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+    <script src="ads.js"></script>
+
+    <!-- Buttons -->
+    <button type="playbutton">Play</button><br><br>
+    <button type="button" onclick=initializedAdAPIRequest()>Init AD API</button><br><br>
+    <button type="button" onclick=submitScore()>Post Score API</button>
+
+</body>
+
+</html>

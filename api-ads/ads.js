@@ -13,12 +13,14 @@ window.addEventListener('load', function () {
     videoElement = document.getElementById('video-element');
     playButton = document.getElementById('play-button');
     initializeIMA();
+    
     videoElement.addEventListener('play', function (event) {
-        LoadAds(event);
+       LoadAds(event);
+        
     })
 
-    playButton.addEventListener('click', function () {
-        PlayAds();
+    playButton.addEventListener('click', function (event) {
+        videoElement.play();
     });
 });
 
@@ -58,10 +60,7 @@ function initializeIMA() {
 
 
     var adsRequest = new google.ima.AdsRequest();
-    adsRequest.adTagUrl = 'https://pubads.g.doubleclick.net/gampad/ads?' +
-        'sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&' +
-        'impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&' +
-        'cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=';
+    adsRequest.adTagUrl = "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=";
 
     // Specify the linear and nonlinear slot sizes. This helps the SDK to
     // select the correct creative if multiple are returned.
@@ -144,15 +143,9 @@ function LoadAds(event) {
     event.preventDefault();
 
     console.log("loading ads");
-
     // Initialize the container. Must be done via a user action on mobile devices.
-
-}
-
-function PlayAds() {
     videoElement.load();
     adDisplayContainer.initialize();
-
 
     var width = videoElement.clientWidth;
     var height = videoElement.clientHeight;
@@ -166,6 +159,8 @@ function PlayAds() {
         console.log("AdsManager Could not be started");
         videoElement.play();
     }
+
+
 }
 
 function OnAdsStarted(adEvent) {
