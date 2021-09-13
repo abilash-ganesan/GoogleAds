@@ -1,28 +1,40 @@
 <!DOCTYPE html>
 <html>
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hammerplay Studios</title>
-<link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hammerplay Studios</title>
+
+    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+    <script>
+        window.googletag = window.googletag || { cmd: [] };
+        googletag.cmd.push(function () {
+            googletag.defineSlot('/6355419/Travel/Europe/France/Paris', [300, 250], 'banner-ad').addService(googletag.pubads());
+            googletag.enableServices();
+        });
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
 
 <body>
     <h2>Hammerplay Studios</h2>
     <p>Maxamtech API Test</p>
-
-    <div id="pageContent">
-        <div id="videoContainer">
-            <video id="video-element">
-                <source src="https://storage.googleapis.com/interactive-media-ads/media/android.mp4">
-                <source src="https://storage.googleapis.com/interactive-media-ads/media/android.webm">
-            </video>
-            <div id="adContainer"></div>
+    <div id="banner-ad" style="width: 300px; height: 250px;">
+        <div id="pageContent">
+            <div id="videoContainer">
+                <video id="videoelement">
+                    <source src="https://storage.googleapis.com/interactive-media-ads/media/android.mp4">
+                    <source src="https://storage.googleapis.com/interactive-media-ads/media/android.webm">
+                </video>
+                <div id="adContainer"></div>
+            </div>
         </div>
-    
     </div>
 
     <!-- Script Reference -->
-    <script src ="//imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+    <script src="//imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
     <script src="ads.js"></script>
 
     <!-- Buttons -->

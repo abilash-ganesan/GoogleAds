@@ -8,6 +8,7 @@ var adsLoader;
 var adsManager;
 var countdownTimer;
 var playbutton;
+var isAlive = true;
 
 // Response TYPE
 const RESPONSE_TYPE = {
@@ -83,14 +84,17 @@ function initializedAdAPIRequest() {
 
                 adsAPIresponse.in_game = function () { };
 
-                adsAPIresponse.revive = function () {  };
+                adsAPIresponse.revive = function () { 
+                    //displayImageAds();
+                    playAds();
+                };
 
                 adsAPIresponse.reward = function () { };
 
                 adsAPIresponse.exit = function () { };
             }
             adsAPIInitialized = true;
-            adsAPIresponse.revive = playAds();
+            adsAPIresponse.revive();
         }
     });
 
@@ -101,7 +105,7 @@ function initializedAdAPIRequest() {
 };
 
 function init() {
-    videoelement = document.getElementById('video-element');
+    videoelement = document.getElementById('videoelement');
     setUpIMA();
 }
 
@@ -146,6 +150,12 @@ function createAdDisplayContainer() {
     // the ads.
     adDisplayContainer = new google.ima.AdDisplayContainer(
         document.getElementById('adContainer'), videoelement);
+}
+
+function displayImageAds(){
+    googletag.cmd.push(function () {
+        googletag.display('banner-ad');
+    });
 }
 
 function playAds() {
